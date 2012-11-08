@@ -1,0 +1,18 @@
+propel:
+  _attributes:
+    package: lib.model
+    defaultIdMethod: native
+  cliente:
+    _attributes: { phpName: Cliente, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    apellido: { phpName: Apellido, type: VARCHAR, size: '45', required: true }
+    nombre: { phpName: Nombre, type: VARCHAR, size: '45', required: true }
+    localidad_id: { phpName: LocalidadId, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', required: true, foreignTable: localidad, foreignReference: id }
+    dni: { phpName: Dni, type: INTEGER, size: '8', sqlType: 'int(8) unsigned', required: true }
+    fecha_nacimiento: { phpName: FechaNacimiento, type: DATE, required: true }
+    activo: { phpName: Activo, type: BOOLEAN, size: '1', required: true, defaultValue: true }
+    _indexes: { fk_cliente_localidad: [localidad_id] }
+  localidad:
+    _attributes: { phpName: Localidad, idMethod: native }
+    id: { phpName: Id, type: INTEGER, size: '10', sqlType: 'int(10) unsigned', primaryKey: true, autoIncrement: true, required: true }
+    localidad: { phpName: Localidad, type: VARCHAR, size: '45', required: true }

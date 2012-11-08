@@ -2,3 +2,9 @@ propel:
   _attributes:
     package: lib.model
     defaultIdMethod: native
+
+  localidad:
+    localidad: { primaryString: true }
+
+  cliente:
+    nombre: { primaryString: true }
